@@ -7,6 +7,7 @@ import com.company.connectionSQL.repo.JobRepo;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import javax.transaction.Transactional;
 import java.util.List;
 
 @Service
@@ -37,7 +38,7 @@ public class EmployeeService {
         return employeeRepo.findEmployeeById(id)
                 .orElseThrow(() -> new UserNotFoundException("User by id " + id + " was not found"));
     }
-
+    @Transactional
     public void deleteEmployee(Integer id) {
         employeeRepo.deleteEmployeeById(id);
     }
