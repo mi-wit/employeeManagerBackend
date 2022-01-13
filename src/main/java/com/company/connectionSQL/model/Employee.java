@@ -9,6 +9,7 @@ import java.time.LocalDate;
 @Table(name = "EMPLOYEES")
 public class Employee implements Serializable {
     @Id
+    @GeneratedValue(strategy = GenerationType.AUTO)
     @Column(name = "EMPLOYEE_ID", nullable = false)
     private Integer id;
 
